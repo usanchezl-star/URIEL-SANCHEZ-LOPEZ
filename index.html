@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocuGen ERF - Liverpool</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; margin: 0; padding: 0; }
+        
+        /* Ocultar barra de desplazamiento para Chrome, Safari y Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Ocultar barra de desplazamiento para IE, Edge y Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE y Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+            .page-break { page-break-after: always; clear: both; }
+            body { background: white !important; }
+            .pdf-page { 
+                box-shadow: none !important; 
+                border: none !important; 
+                width: 210mm !important; 
+                margin: 0 !important;
+                padding: 15mm !important;
+            }
+        }
+
+        .report-table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; table-layout: fixed; }
+        .report-table th, .report-table td { border: 1px solid #000; padding: 6px; font-size: 10px; text-align: left; word-wrap: break-word; }
+        .report-table th { background-color: #f8fafc; font-weight: 800; text-transform: uppercase; color: #000; }
+        
+        .toc-link { display: flex; align-items: baseline; gap: 4px; padding: 8px 0; font-size: 12px; color: #1e293b; }
+        .toc-link span:first-child { flex-shrink: 0; }
+        .toc-link::after { content: ""; flex-grow: 1; border-bottom: 1px dotted #94a3b8; margin-bottom: 4px; }
+        .toc-link span:last-child { flex-shrink: 0; font-weight: bold; }
+
+        .pdf-page {
+            background: white;
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            padding: 20mm;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 64px;
+            color: rgba(200, 200, 200, 0.15); /* More diluted color */
+            pointer-events: none;
+            z-index: 9999;
+            white-space: nowrap;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-align: center;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
